@@ -1,0 +1,298 @@
+curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers
+
+. venv/bin/activate
+
+curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com/:8080/containers?state=running
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+2!!!!!!!!!!
+- containers
+curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers | python -m json.tool
+[
+    {
+        "id": "b1124f8ff987",
+        "image": "fc0ee7de8070",
+        "name": "loving_fermat",
+        "ports": "ago"
+    },
+    {
+        "id": "ab05f5c67cc1",
+        "image": "a2d53667e34a",
+        "name": "drunk_hypatia",
+        "ports": "ago"
+    },
+    {
+        "id": "c45969a68bbd",
+        "image": "9e2d56d398a9b3d54fd0211fc142c67e0695c58b4d4d013ca85b7a64ea5e0303",
+        "name": "prickly_yalow",
+        "ports": "ago"
+    },
+    {
+        "id": "274988462c3b",
+        "image": "9e2d56d398a9b3d54fd0211fc142c67e0695c58b4d4d013ca85b7a64ea5e0303",
+        "name": "mad_noyce",
+        "ports": "ago"
+    },
+    {
+        "id": "8f318704b882",
+        "image": "9e2d56d398a9b3d54fd0211fc142c67e0695c58b4d4d013ca85b7a64ea5e0303",
+        "name": "pensive_bhaskara",
+        "ports": "ago"
+    },
+    {
+        "id": "887f2b901cb2",
+        "image": "3155ce9cde3f",
+        "name": "berserk_elion",
+        "ports": "ago"
+    },
+    {
+        "id": "3fe7b1b3a019",
+        "image": "sshd_image",
+        "name": "focused_kalam",
+        "ports": "ago"
+    },
+    {
+        "id": "b9a0490b101b",
+        "image": "whalesay-build",
+        "name": "insane_bartik",
+        "ports": "ago"
+    },
+    {
+        "id": "98bc5786cf63",
+        "image": "whalesay-build",
+        "name": "modest_mayer",
+        "ports": "ago"
+    },
+    {
+        "id": "ed1a23b5b64e",
+        "image": "whalesay-build",
+        "name": "insane_mestorf",
+        "ports": "ago"
+    },
+    {
+        "id": "e9ac907f6f60",
+        "image": "8413e3a00179",
+        "name": "ubuntu-ssh2",
+        "ports": "ago"
+    },
+    {
+        "id": "1af419559fd3",
+        "image": "8413e3a00179",
+        "name": "ubuntu-ssh1",
+        "ports": "0.0.0.0:8082->22/tcp"
+    },
+    {
+        "id": "29bfc1f33ac1",
+        "image": "8413e3a00179",
+        "name": "furious_hypatia",
+        "ports": "ago"
+    }
+]
+
+- running containers
+curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers?state=running python -m json.tool
+[
+    {
+        "id": "1af419559fd3",
+        "image": "8413e3a00179",
+        "name": "ubuntu-ssh1",
+        "ports": "0.0.0.0:8082->22/tcp"
+    }
+]
+
+
+4 !!!!!!!!!!
+1 a) - containters
+curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers
+| python -m json.tool
+[
+    {
+        "id": "130f7376d011",
+        "image": "hello-world",
+        "name": "big_yalow",
+        "ports": "ago"
+    },
+    {
+        "id": "d3df27f0a37e",
+        "image": "hello-world",
+        "name": "agitated_fermi",
+        "ports": "ago"
+    }
+]
+
+1 b) - running containters
+curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers?state=running
+NONE
+
+2 - images
+curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers/ac6f783504aa | python -m json.tool
+[
+    {
+        "id": "hello-world",
+        "image": "latest",
+        "name": "B",
+        "ports": "960"
+    }
+]
+
+3 - id
+curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers/ac6f783504aa | python -m json.tool
+[
+    {
+        "AppArmorProfile": "",
+        "Args": [],
+        "Config": {
+            "AttachStderr": true,
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "Cmd": [
+                "/hello"
+            ],
+            "Domainname": "",
+            "Entrypoint": null,
+            "Env": null,
+            "Hostname": "ac6f783504aa",
+            "Image": "hello-world",
+            "Labels": {},
+            "OnBuild": null,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "StopSignal": "SIGTERM",
+            "Tty": false,
+            "User": "",
+            "Volumes": null,
+            "WorkingDir": ""
+        },
+        "Created": "2015-11-11T15:57:59.3805144Z",
+        "Driver": "aufs",
+        "ExecDriver": "native-0.2",
+        "ExecIDs": null,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "HostConfig": {
+            "Binds": null,
+            "BlkioWeight": 0,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupParent": "",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "ContainerIDFile": "",
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuShares": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "KernelMemory": 0,
+            "Links": null,
+            "LogConfig": {
+                "Config": {},
+                "Type": "json-file"
+            },
+            "LxcConf": [],
+            "Memory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "NetworkMode": "default",
+            "OomKillDisable": false,
+            "PidMode": "",
+            "PortBindings": {},
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "RestartPolicy": {
+                "MaximumRetryCount": 0,
+                "Name": "no"
+            },
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "Ulimits": null,
+            "VolumeDriver": "",
+            "VolumesFrom": null
+        },
+        "HostnamePath": "/var/lib/docker/containers/ac6f783504aab95dd09c0d4e72d7c65c9145f143e9f91c6c4cc2d4d64ee41220/hostname",
+        "HostsPath": "/var/lib/docker/containers/ac6f783504aab95dd09c0d4e72d7c65c9145f143e9f91c6c4cc2d4d64ee41220/hosts",
+        "Id": "ac6f783504aab95dd09c0d4e72d7c65c9145f143e9f91c6c4cc2d4d64ee41220",
+        "Image": "0a6ba66e537a53a5ea94f7c6a99c534c6adb12e3ed09326d4bf3b38f7c3ba4e7",
+        "LogPath": "/var/lib/docker/containers/ac6f783504aab95dd09c0d4e72d7c65c9145f143e9f91c6c4cc2d4d64ee41220/ac6f783504aab95dd09c0d4e72d7c65c9145f143e9f91c6c4cc2d4d64ee41220-json.log",
+        "MountLabel": "",
+        "Mounts": [],
+        "Name": "/nostalgic_wilson",
+        "NetworkSettings": {
+            "Bridge": "",
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "HairpinMode": false,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "MacAddress": "",
+            "Networks": {
+                "bridge": {
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "MacAddress": ""
+                }
+            },
+            "Ports": null,
+            "SandboxID": "",
+            "SandboxKey": "",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null
+        },
+        "Path": "/hello",
+        "ProcessLabel": "",
+        "ResolvConfPath": "/var/lib/docker/containers/ac6f783504aab95dd09c0d4e72d7c65c9145f143e9f91c6c4cc2d4d64ee41220/resolv.conf",
+        "RestartCount": 0,
+        "State": {
+            "Dead": false,
+            "Error": "",
+            "ExitCode": 0,
+            "FinishedAt": "2015-11-11T15:58:00.292232Z",
+            "OOMKilled": false,
+            "Paused": false,
+            "Pid": 0,
+            "Restarting": false,
+            "Running": false,
+            "StartedAt": "2015-11-11T15:58:00.2764369Z",
+            "Status": "exited"
+        }
+    }
+]
+
+4 SAME AS HELLO-WORLD
+curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers/ac6f783504aa/logs
+
+5 !!!!!!!!!!!!!!!
+1 - images remove
+curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/images/ac6f783504aa | python -m json.tool
+
+2 - containers remove
+curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers/ac6f783504aa | python -m json.tool
+
+3 - images remove all
+curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/images | python -m json.tool
+
+4 - remove containers all
+curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers | python -m json.tool
