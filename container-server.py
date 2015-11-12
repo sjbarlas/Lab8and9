@@ -56,7 +56,8 @@ def images_index():
     Complete the code below generating a valid response. 
     """
     
-    resp = ''
+    output = docker('images')
+    resp = json.dumps(docker_ps_to_array(output))
     return Response(response=resp, mimetype="application/json")
 
 @app.route('/containers/<id>', methods=['GET'])
@@ -65,10 +66,10 @@ def containers_show(id):
     Inspect specific container
 
     """
-
-    resp = ''
-
-    return Response(response=resp, mimetype="application/json")
+    
+    output = docker('inspect', id)
+    
+    return Response(response=output, mimetype="application/json")
 
 @app.route('/containers/<id>/logs', methods=['GET'])
 def containers_log(id):
@@ -76,14 +77,16 @@ def containers_log(id):
     Dump specific container logs
 
     """
-    resp = ''
-    return Response(response=resp, mimetype="application/json")
+    output = docker('logs', id)
+    #resp = ''
+    return Response(response=output, mimetype="application/json")
 
 
 @app.route('/images/<id>', methods=['DELETE'])
 def images_remove(id):
     """
     Delete a specific image
+    curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/images/ac6f783504aa | python -m json.tool
     """
     docker ('rmi', id)
     resp = '{"id": "%s"}' % id
@@ -95,7 +98,9 @@ def containers_remove(id):
     Delete a specific container - must be already stopped/killed
 
     """
-    resp = ''
+   
+    docker('rm', id)
+    resp = '{"id": "%s"}' % id
     return Response(response=resp, mimetype="application/json")
 
 @app.route('/containers', methods=['DELETE'])
@@ -104,14 +109,15 @@ def containers_remove_all():
     Force remove all containers - dangrous!
 
     """
-    resp = ''
+    docker('rm')
+    #resp = ''
     return Response(response=resp, mimetype="application/json")
 
 @app.route('/images', methods=['DELETE'])
 def images_remove_all():
     """
     Force remove all images - dangrous!
-
+    curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers/ac6f783504aa | python -m json.tool
     """
  
     resp = ''
