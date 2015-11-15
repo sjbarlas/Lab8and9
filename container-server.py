@@ -107,7 +107,7 @@ def containers_remove(id):
 def containers_remove_all():
     """
     Force remove all containers - dangrous!
-
+    curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers | python -m json.tool
     """
     docker('rm')
     #resp = ''
@@ -117,7 +117,7 @@ def containers_remove_all():
 def images_remove_all():
     """
     Force remove all images - dangrous!
-    curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers/ac6f783504aa | python -m json.tool
+    curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/images | python -m json.tool
     """
  
     resp = ''
