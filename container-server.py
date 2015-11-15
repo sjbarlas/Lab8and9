@@ -1,3 +1,4 @@
+
 from flask import Flask, Response, render_template, request
 import json
 from subprocess import Popen, PIPE
@@ -48,6 +49,7 @@ def containers_index():
     resp = json.dumps(docker_ps_to_array(output))
     return Response(response=resp, mimetype="application/json")
 
+
 @app.route('/images', methods=['GET'])
 def images_index():
     """
@@ -60,6 +62,7 @@ def images_index():
     resp = json.dumps(docker_ps_to_array(output))
     return Response(response=resp, mimetype="application/json")
 
+
 @app.route('/containers/<id>', methods=['GET'])
 def containers_show(id):
     """
@@ -70,6 +73,7 @@ def containers_show(id):
     output = docker('inspect', id)
     #resp = ''    
     return Response(response=output, mimetype="application/json")
+
 
 @app.route('/containers/<id>/logs', methods=['GET'])
 def containers_log(id):
@@ -92,6 +96,7 @@ def images_remove(id):
     resp = '{"id": "%s"}' % id
     return Response(response=resp, mimetype="application/json")
 
+
 @app.route('/containers/<id>', methods=['DELETE'])
 def containers_remove(id):
     """
@@ -103,6 +108,7 @@ def containers_remove(id):
     resp = '{"id": "%s"}' % id
     return Response(response=resp, mimetype="application/json")
 
+
 @app.route('/containers', methods=['DELETE'])
 def containers_remove_all():
     """
@@ -112,6 +118,7 @@ def containers_remove_all():
     docker('rm')
     #resp = ''
     return Response(response=resp, mimetype="application/json")
+
 
 @app.route('/images', methods=['DELETE'])
 def images_remove_all():
@@ -153,8 +160,6 @@ def images_create():
     
     resp = ''
     return Response(response=resp, mimetype="application/json")
-
-
 
 
 @app.route('/containers/<id>', methods=['PATCH'])
