@@ -68,7 +68,7 @@ def containers_show(id):
     """
     
     output = docker('inspect', id)
-    
+    #resp = ''    
     return Response(response=output, mimetype="application/json")
 
 @app.route('/containers/<id>/logs', methods=['GET'])
