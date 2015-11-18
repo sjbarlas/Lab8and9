@@ -176,6 +176,9 @@ def containers_update(id):
         state = body['state']
         if state == 'running':
             docker('restart', id)
+        elif state == 'stopped':
+	    docker('stopped', id)
+	
     except:
         pass
 
@@ -190,7 +193,10 @@ def images_update(id):
     curl -s -X PATCH -H 'Content-Type: application/json' http://localhost:8080/images/7f2619ed1768 -d '{"tag": "test:1.0"}'
 
     """
-    resp = ''
+    body = request.get_json(force=True)
+    name = body['tag']
+    dockcer('tag', id)
+    resp = '{"id": "%s"}' % id
     return Response(response=resp, mimetype="application/json")
 
 
