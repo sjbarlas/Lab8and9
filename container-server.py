@@ -195,7 +195,7 @@ def images_update(id):
     """
     body = request.get_json(force=True)
     name = body['tag']
-    dockcer('tag', id)
+    docker('tag', id)
     resp = '{"id": "%s"}' % id
     return Response(response=resp, mimetype="application/json")
 
