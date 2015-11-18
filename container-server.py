@@ -143,7 +143,8 @@ def containers_create():
     """
     body = request.get_json(force=True)
     image = body['image']
-    args = ('run', '-d')
+    publish = body['publish']
+    args = ('run', '-d', '-p')
     id = docker(*(args + (image,)))[0:12]
     return Response(response='{"id": "%s"}' % id, mimetype="application/json")
 
