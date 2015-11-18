@@ -5,8 +5,20 @@ curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/cont
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com/:8080/containers?state=running
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+1 !!!!!!!!!!!!!
+a) curl –s > Makes curl mute and doesn’t show any error messages or progress meter.
+b) curl –X GET > Requesting data using GET method.
+c) curl –H 'Accept: application/json' > Header Line. Custom header to pass to server.
+d) Use  the  CURL  Command  to  connect  to  the  “/”  location  of  the  CMFA  and  list  the  REST 
+Services  available >  curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com/:8080/
+
+
 2!!!!!!!!!!
-- containers
+a) - no. of images
+curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
+<no idea>
+
+b) - containers
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers | python -m json.tool
 [
     {
@@ -89,7 +101,7 @@ curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.co
     }
 ]
 
-- running containers
+c) - running containers
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers?state=running python -m json.tool
 [
     {
@@ -100,6 +112,7 @@ curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.co
     }
 ]
 
+d) - curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers
 
 4 !!!!!!!!!!
 1 a) - containters
@@ -296,3 +309,9 @@ curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/i
 
 4 - remove containers all
 curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers | python -m json.tool
+
+6 !!!!!!!!!!!!!!!
+> done
+
+7 !!!!!!!!!!!!!!!
+> half done
