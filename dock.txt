@@ -16,6 +16,7 @@ Services  available >  curl -s -X GET -H 'Accept: application/json' http://ec2-
 2!!!!!!!!!!
 a) - no. of images
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
+<<<<<<< HEAD
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   718  100   718    0     0   1260      0 --:--:-- --:--:-- --:--:--  1261
@@ -82,6 +83,9 @@ curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.co
     }
 ]
 
+=======
+<no idea>
+>>>>>>> 179f5eefb3856305e1e5432134f45529dc9e3390
 
 b) - containers
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers | python -m json.tool
@@ -177,6 +181,7 @@ curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.co
     }
 ]
 
+<<<<<<< HEAD
 d) - curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
 
 e) - curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
@@ -342,6 +347,9 @@ g) - curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west
 h) idk
 
 i) curl -s -X PATCH -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers/e9ac907f6f60 | python -m json.tool
+=======
+d) - curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers
+>>>>>>> 179f5eefb3856305e1e5432134f45529dc9e3390
 
 4 !!!!!!!!!!
 1 a) - containters
@@ -543,4 +551,8 @@ curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/c
 > done
 
 7 !!!!!!!!!!!!!!!
+<<<<<<< HEAD
 > half done
+=======
+> half done
+>>>>>>> 179f5eefb3856305e1e5432134f45529dc9e3390
