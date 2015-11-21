@@ -5,8 +5,85 @@ curl -s -X GET -H 'Accept: application/json' http://Saira.cloudapp.net:8080/cont
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com/:8080/containers?state=running
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+1 !!!!!!!!!!!!!
+a) curl –s > Makes curl mute and doesn’t show any error messages or progress meter.
+b) curl –X GET > Requesting data using GET method.
+c) curl –H 'Accept: application/json' > Header Line. Custom header to pass to server.
+d) Use  the  CURL  Command  to  connect  to  the  “/”  location  of  the  CMFA  and  list  the  REST 
+Services  available >  curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com/:8080/
+
+
 2!!!!!!!!!!
-- containers
+a) - no. of images
+curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   718  100   718    0     0   1260      0 --:--:-- --:--:-- --:--:--  1261
+[
+    {
+        "id": "fc0ee7de8070",
+        "name": "<none>",
+        "tag": "<none>"
+    },
+    {
+        "id": "3155ce9cde3f",
+        "name": "sshd_image",
+        "tag": "latest"
+    },
+    {
+        "id": "3155ce9cde3f",
+        "name": "whalesay-build",
+        "tag": "latest"
+    },
+    {
+        "id": "5a8b7c8a771b",
+        "name": "<none>",
+        "tag": "<none>"
+    },
+    {
+        "id": "baa3eab042ac",
+        "name": "tagname1",
+        "tag": "latest"
+    },
+    {
+        "id": "8413e3a00179",
+        "name": "dd",
+        "tag": "latest"
+    },
+    {
+        "id": "8413e3a00179",
+        "name": "d",
+        "tag": "latest"
+    },
+    {
+        "id": "8413e3a00179",
+        "name": "tagd",
+        "tag": "latest"
+    },
+    {
+        "id": "8413e3a00179",
+        "name": "smalltag",
+        "tag": "latest"
+    },
+    {
+        "id": "c92b8506d182",
+        "name": "python",
+        "tag": "2.7"
+    },
+    {
+        "id": "a5a467fddcb8",
+        "name": "ubuntu",
+        "tag": "14.04"
+    },
+    {
+        "id": "fb434121fc77",
+        "name": "docker/whalesay",
+        "tag": "latest"
+    }
+]
+
+
+b) - containers
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers | python -m json.tool
 [
     {
@@ -89,7 +166,7 @@ curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.co
     }
 ]
 
-- running containers
+c) - running containers
 curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers?state=running python -m json.tool
 [
     {
@@ -100,6 +177,171 @@ curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.co
     }
 ]
 
+d) - curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
+
+e) - curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images | python -m json.tool
+There is no difference, they all have different names though
+
+f) -  curl -H 'Accept: application/json' -F file=@Dockerfile  http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/images
+
+g) - curl -s -X GET -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers/1af419559fd3 | python -m json.tool
+[
+    {
+        "AppArmorProfile": "",
+        "Args": [
+            "-D"
+        ],
+        "Config": {
+            "AttachStderr": false,
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "Cmd": [
+                "/usr/sbin/sshd",
+                "-D"
+            ],
+            "Domainname": "",
+            "Entrypoint": null,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NOTVISIBLE=in users profile"
+            ],
+            "ExposedPorts": {
+                "22/tcp": {}
+            },
+            "Hostname": "1af419559fd3",
+            "Image": "8413e3a00179",
+            "Labels": {},
+            "MacAddress": "",
+            "NetworkDisabled": false,
+            "OnBuild": null,
+            "OpenStdin": false,
+            "PublishService": "",
+            "StdinOnce": false,
+            "Tty": false,
+            "User": "",
+            "VolumeDriver": "",
+            "Volumes": null,
+            "WorkingDir": ""
+        },
+        "Created": "2015-10-28T19:24:07.934594301Z",
+        "Driver": "aufs",
+        "ExecDriver": "native-0.2",
+        "ExecIDs": null,
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "HostConfig": {
+            "Binds": null,
+            "BlkioWeight": 0,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupParent": "",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "ContainerIDFile": "",
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuShares": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "Dns": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Links": null,
+            "LogConfig": {
+                "Config": {},
+                "Type": "json-file"
+            },
+            "LxcConf": [],
+            "Memory": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "NetworkMode": "default",
+            "OomKillDisable": false,
+            "PidMode": "",
+            "PortBindings": {
+                "22/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8082"
+                    }
+                ]
+            },
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "RestartPolicy": {
+                "MaximumRetryCount": 0,
+                "Name": "no"
+            },
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "Ulimits": null,
+            "VolumesFrom": null
+        },
+        "HostnamePath": "/var/lib/docker/containers/1af419559fd3e452d30f911a954d744185d00bf273865664bd54847011ef7285/hostname",
+        "HostsPath": "/var/lib/docker/containers/1af419559fd3e452d30f911a954d744185d00bf273865664bd54847011ef7285/hosts",
+        "Id": "1af419559fd3e452d30f911a954d744185d00bf273865664bd54847011ef7285",
+        "Image": "8413e3a001798f5b33b02b23824c67b686685f888986f0cae40321035b5529d0",
+        "LogPath": "/var/lib/docker/containers/1af419559fd3e452d30f911a954d744185d00bf273865664bd54847011ef7285/1af419559fd3e452d30f911a954d744185d00bf273865664bd54847011ef7285-json.log",
+        "MountLabel": "",
+        "Mounts": [],
+        "Name": "/ubuntu-ssh1",
+        "NetworkSettings": {
+            "Bridge": "",
+            "EndpointID": "4ff14a6cd6d00044400e2c9043f0d532ee9d98863bedff1f4afbf80977a2986b",
+            "Gateway": "172.17.42.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "HairpinMode": false,
+            "IPAddress": "172.17.0.84",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "MacAddress": "02:42:ac:11:00:54",
+            "NetworkID": "8261c31a5a1e546f86687012d799e58e8a9eba6433fa322236d89795c820e8ba",
+            "PortMapping": null,
+            "Ports": {
+                "22/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8082"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/1af419559fd3",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null
+        },
+        "Path": "/usr/sbin/sshd",
+        "ProcessLabel": "",
+        "ResolvConfPath": "/var/lib/docker/containers/1af419559fd3e452d30f911a954d744185d00bf273865664bd54847011ef7285/resolv.conf",
+        "RestartCount": 0,
+        "State": {
+            "Dead": false,
+            "Error": "",
+            "ExitCode": 0,
+            "FinishedAt": "2015-11-11T14:22:55.781628252Z",
+            "OOMKilled": false,
+            "Paused": false,
+            "Pid": 13821,
+            "Restarting": false,
+            "Running": true,
+            "StartedAt": "2015-11-11T14:22:56.122182874Z"
+        }
+    }
+]
+
+h) idk
+
+i) curl -s -X PATCH -H 'Accept: application/json' http://ec2-52-30-53-57.eu-west-1.compute.amazonaws.com:8080/containers/e9ac907f6f60 | python -m json.tool
 
 4 !!!!!!!!!!
 1 a) - containters
@@ -296,3 +538,9 @@ curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/i
 
 4 - remove containers all
 curl -s -X DELETE -H 'Accept: application/json' http://Saira.cloudapp.net:8080/containers | python -m json.tool
+
+6 !!!!!!!!!!!!!!!
+> done
+
+7 !!!!!!!!!!!!!!!
+> half done
